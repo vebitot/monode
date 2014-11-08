@@ -1,11 +1,21 @@
 <html>
 <head> <title>MoNode</title>
+	<script type="text/javascript">
+	function putDate (){
+		var today = new Date();
+		document.getElementById("date").innerHTML = today;
+		console.log(today);
+	}
+	setInterval(putDate,1000);
+		
+	</script>
 </head>
-<body>
+<body onload="putDate()">
 	<nav> <li><a href="/">Home </a></li>
 <li><a href="/home">Register </a></li>
+<li><span id="date"></span></li>
 </nav>
-<h2>Hello,<strong> {{ name }} </strong> </h2>
+<h2>Hello,<strong> {{ _id }} </strong> </h2>
 <h4>{{ email }} </h4>
 <p> Welcome this is a template from swig templating engine </p>
 </body>

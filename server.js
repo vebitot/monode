@@ -29,7 +29,7 @@ var db = mongoclient.db('chatblog');
 
 // setting up url
 app.get('/', function(req, res){
-        db.collection('users').findOne({"name":"Vebito Tetseo"}, function(err, doc){
+        db.collection('users').findOne(function(err, doc){
         if (err) throw err;
         res.render("index", doc);
     })
@@ -45,16 +45,19 @@ app.get('/login', function(req, res, next){
 app.post('/register',function(req, res, next){
     var name = req.body.username;
     var email = req.body.email;
-    if(name.trim() == "" || name == null || email.trim() =="" || email == null)
+    var password = req.body.password;
+    if(name.trim() == "" || name == null || email.trim() =="" || email == null || password.trim() =="" || password == null)
     {
-        next(Error("please enter a username and email!"));
+        next(Error("please enter a username, email and password to signUp!"));
         console.log("nothing here");
     }
     else{
         console.log(name);
         console.log(email);
-        db.collection('users').insert({'name':name, 'email': email}, function(err, doc){
-            if(err) throw err;
+        db.collection('users').insert({'_id':name, 'email': email, "password": password}, function(err, doc){
+            if(err){
+                next(Error("A user with that name already exists!"));
+            }
             res.render("index",doc);
         })
     }
@@ -73,7 +76,8 @@ app.post('/authenticate',function(req, res, next){
         console.log(password);
         db.collection('users').findOne({'username':username}, function(err, doc){
             if(err) throw err;
-            console.log(doc);
+            userInfo = doc;
+            console.log(userInfo);
         })
     }
 });
