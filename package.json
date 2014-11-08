@@ -16,7 +16,9 @@
 	"dependencies":{
 		"express": "4.10.1",
 		"consolidate": "0.10.x",
-		"mongodb": "1.4.x"
+		"mongodb": "1.4.x",
+		"body-parser": "1.9.x",
+		"swig": "1.4.23"
 	},
 	"keywords":["Mongo", "NodeJs", "blog", "first"]
 }
