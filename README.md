@@ -1,0 +1,1 @@
+An excercise project using node, express and mongo... only angular is missing to make it a full stack!!
