@@ -1,0 +1,22 @@
+{
+	"name":"MoNode",
+	"version":"0.0.1",
+	"description": "Mongo Course for NodeJs developers",
+	"author": "Vebito Tetseo",
+	"private": true,
+	"contributers":[{
+						"name":"Mongo",
+						"site":"university.mongo.com"
+					},
+					{
+						"name": "MongoDB",
+						"site": "MongoDB.com"
+					}
+					],
+	"dependencies":{
+		"express": "4.10.1",
+		"consolidate": "0.10.x",
+		"mongodb": "1.4.x"
+	},
+	"keywords":["Mongo", "NodeJs", "blog", "first"]
+}
